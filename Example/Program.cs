@@ -14,23 +14,6 @@ namespace Example
         {
             Arrays arrays = new Arrays();
 
-            //int[] array = arrays.MakeArray();
-            //int[] array1 = arrays.MakeArray();
-
-            //int[] combinedArray = arrays.Combine(array, array1);
-            //arrays.SortDesc(combinedArray);
-            //Console.WriteLine("Combined and assorted array: ");
-            //arrays.Display(combinedArray);
-
-            //double sum = arrays.Sum(array);
-            //arrays.Average(array.Length, sum);
-
-            //arrays.Reverse(array);
-
-            //int[] arrayA = arrays.Rotate(Arrays.Direction.Left, 2, arrays.ArrayA);
-            //int[] arrayB = arrays.Rotate(Arrays.Direction.Right, 2, arrays.ArrayB);
-            //int[] arrayC = arrays.Rotate(Arrays.Direction.Left, 4, arrays.ArrayC);
-
             //Counting, Summing, computing mean
             int[] arrayA = arrays.ArrayA;
             int[] arrayB = arrays.ArrayB;
@@ -46,34 +29,29 @@ namespace Example
             Console.WriteLine("");
 
             //Reversing arrays
-            Console.WriteLine("ArrayA reversed:");
+            Console.WriteLine("\nArrayA reversed:");
             arrays.Reverse(arrayA);
-            Console.WriteLine("ArrayB reversed:");
+            Console.WriteLine("\nArrayB reversed:");
             arrays.Reverse(arrayB);
-            Console.WriteLine("ArrayC reversed:");
+            Console.WriteLine("\nArrayC reversed:");
             arrays.Reverse(arrayC);
+            Console.WriteLine("");
 
+            //Rotating arrays
             int[] rotatedArrayA=arrays.Rotate(Arrays.Direction.Left, 2, arrayA);
             int[] rotatedArrayB = arrays.Rotate(Arrays.Direction.Right, 2, arrayB);
             int[] rotatedArrayC = arrays.Rotate(Arrays.Direction.Left, 4, arrayC);
-            Console.WriteLine("Rotated arrayA left by two places: ");
+            Console.WriteLine("\nRotated arrayA left by two places: ");
             arrays.Display(rotatedArrayA);
-            Console.WriteLine("Rotated arrayB right by two places: ");
+            Console.WriteLine("\nRotated arrayB right by two places: ");
             arrays.Display(rotatedArrayB);
-            Console.WriteLine("Rotated arrayC left by four places");
+            Console.WriteLine("\nRotated arrayC left by four places");
             arrays.Display(rotatedArrayC);
 
-            Console.WriteLine("CHANGED");
-
-
-            //int[] arrangedArray = arrays.Sort(arrays.ArrayC);
-            //arrays.Display(arrangedArray);
-            //int numberOfDuplicates = arrays.Duplicates(arrangedArray);
-            //Console.WriteLine($"Number of duplicates is {numberOfDuplicates}");
-
-            //arrays.UniqueElements(array);
-
-
+            //Sorting arrays
+            int[] sortedArray =arrays.Sort(arrayC);
+            Console.WriteLine("\n\nSorted array:");
+            arrays.Display(sortedArray);
 
             //Deep copy of array
             //int[] cats2 = new int[cats.Length];

@@ -51,29 +51,39 @@ namespace Example
 
             for (int i = array.Length - 1; i >= 0; i--)
             {
-                Console.WriteLine(array[i]);
+                Console.Write($"{array[i]} ");
             }
         }
 
         public int[] Rotate(Direction direction, int places, int[] array) 
         {
+            int[] arrayCopy= new int[array.Length];
             if (direction == Direction.Left)
             {
-                
-                for (int i = 0; i < array.Length; i++)
+
+                for (int i = 0; i < places; i++)
                 {
-                    array[i] = array[(i + places)%array.Length];
+                    int temp = array[0];
+                    for (int j = 1; j < array.Length; j++)
+                    {
+                        array[j - 1] = array[j];
+                    }
+                    array[array.Length - 1] = temp;
                 }
 
                 return array;
             }
-            else
+            else 
             {
-                for (int i = 0; i >= array.Length; i++)
+                for (int i = 0; i < places; i++)
                 {
-                    array[i] = array[(i - places)%array.Length];
-                }
+                    int temp = array[0];
+                    for (int j = 0; i < array.Length - 1; i++)
+                    {
+                        array[j + 1] = array[j];
+                    }
 
+                }
                 return array;
             }
         }
@@ -82,7 +92,7 @@ namespace Example
         {
             for (int i = 0; i < array.Length; i++)
             {
-                Console.WriteLine(array[i]);
+                Console.Write($"{array[i]} ");
             }
         }
 
@@ -90,13 +100,18 @@ namespace Example
         {
             for (int i = 0; i < array.Length-1; i++)
             {
-                if (array[i] > array[i+1])
+                for (int j = i + 1; j < array.Length; j++)
                 {
-                    int temp = array[i];
-                    array[i] = array[i + 1];
-                    array[i + 1] = temp;
-                    i = 0;
+                    if (array[i] < array[i + 1])
+                    {
+                        int temp = array[i];
+                        array[i] = array[i + 1];
+                        array[i + 1] = temp;
+                        i = 0;
+                    }
                 }
+               
+
             }
 
             return array;
